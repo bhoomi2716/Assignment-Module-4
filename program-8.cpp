@@ -27,7 +27,10 @@ public:
             cout << "Match " << i << " : ";
             cin >> runs[i];
         }
+    }
 
+    int Process()
+    {
         for (int i = 1; i <= 5; i++)
         {
             total_runs += runs[i];
@@ -44,6 +47,8 @@ public:
                 Best_Performance = runs[i];
             }
         }
+
+        return Best_Performance;
     }
 
     void Display()
@@ -59,8 +64,7 @@ int main()
 {
     Batsman player;
     player.Input();
+    player.Process();
     player.Display();
     return 0;
 }
-
-//Done 

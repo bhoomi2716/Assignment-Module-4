@@ -24,44 +24,41 @@ public:
     }
 
     void lec_detail()
-    { 
-            cout << "Enter Lecture Name : ";
-            cin >> lecname;
-            cout << "Enter Subject Name :";
-            cin >> subname;
-            cout << "Enter Course Name : ";
-            cin >> coursename;
-            cout << "Enter Lecture Numner : ";
-            cin >> lecno;
-        
+    {
+        cout << "Enter Lecture Name : ";
+        cin >> lecname;
+        cout << "Enter Subject Name :";
+        cin >> subname;
+        cout << "Enter Course Name : ";
+        cin >> coursename;
+        cout << "Enter Lecture Number : ";
+        cin >> lecno;
     }
 
     void display()
     {
-            cout << "Enter Lecture Name : " << lecname << endl;
-            cout << "Enter Subject Name :" << subname << endl;
-            cout << "Enter Course Name : " << coursename << endl;
-            cout << "Enter Lecture Numner : " << lecno << endl;
+        cout << "Enter Lecture Name : " << lecname << endl;
+        cout << "Enter Subject Name :" << subname << endl;
+        cout << "Enter Course Name : " << coursename << endl;
+        cout << "Enter Lecture Number : " << lecno << endl;
     }
 };
 
 int main()
 {
-
     Lecture lec[5];
-    for(int i=1;i<=5;i++) 
+    for (int i = 0; i <= 4; i++)
     {
-        cout<< "Enter lecture Detail :  "<< i << endl;
+        cout << "Enter lecture Detail :  " << i+1 << endl;
         lec[i].lec_detail();
-        cout<<"================================"<< endl;
+        cout << "================================" << endl;
     }
 
-    cout<<"-------------- Details Of Entered Lecture --------------"<<endl;
+    cout << "-------------- Details Of Entered Lecture --------------" << endl;
 
-
-    for(int i=1;i<=5;i++) 
+    for (int i = 0; i <= 4; i++)
     {
-        cout<< "lecture Detail :  "<< i << endl;
+        cout << "lecture Detail :  " << i+1  << endl;
         lec[i].display();
     }
 

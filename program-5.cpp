@@ -28,5 +28,3 @@ int main()
     cout<<" Cubic Value Of Entered Number: "<< cubic(number) <<endl;
     return 0;
 }
-
-//Done

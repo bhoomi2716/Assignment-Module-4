@@ -50,15 +50,12 @@ public:
     int impose_penalty;
     int deposit_amount;
 
-    curr_acc(string Customer_Name, double Account_Number, string Account_Type, int Balance, int credit_amount) : 
-    account(Customer_Name, Account_Number, Account_Type, Balance)
-    {
-        // balance += credit_amount;
-        deposit_amount = credit_amount;
-    }
+    curr_acc(string Customer_Name, double Account_Number, string Account_Type, int Balance, int credit_amount) : account(Customer_Name, Account_Number, Account_Type, Balance)
+    {}
 
-    int deposit_balance()
+    int deposit_balance(int credit_amount)
     {
+        deposit_amount = credit_amount;
         balance += deposit_amount;
         cout << "Updated Balance: " << balance << endl;
         return balance;
@@ -66,7 +63,7 @@ public:
 
     void DisplayBalance()
     {
-        if (balance> minimum_balance)
+        if (balance > minimum_balance)
         {
             cout << "You Must Pay Rs. 5000 Service Charge As Penalty";
         }
@@ -85,16 +82,12 @@ public:
     int year;
     int withdraw_amount;
 
-    sav_acc(string Customer_Name, double Account_Number, string Account_Type, int Balance, int debit_amount) : 
-    account(Customer_Name, Account_Number, Account_Type, Balance)
-    {
-        // balance -= debit_amount;
-        withdraw_amount=debit_amount;
-        
-    }
+    sav_acc(string Customer_Name, double Account_Number, string Account_Type, int Balance, int debit_amount) : account(Customer_Name, Account_Number, Account_Type, Balance)
+    {}
 
-    int withdraw_balance()
+    int withdraw_balance(int debit_amount)
     {
+        withdraw_amount = debit_amount;
         balance -= withdraw_amount;
         cout << "Updated Balance: " << balance << endl;
         return balance;
@@ -103,7 +96,7 @@ public:
     float simple_Interst(float r, int y)
     {
         rate = r;
-        year = y;   
+        year = y;
         si = (balance * rate * year) / 100;
         cout << "Simple Interest : " << si << endl;
         return si;
@@ -112,7 +105,6 @@ public:
 
 int main()
 {
-
     string name;
     double acc_no;
     string acc_type;
@@ -140,22 +132,22 @@ int main()
     float r;
     int y;
 
-    
+    account a1(name, acc_no, acc_type, bal);
+    curr_acc a2(name, acc_no, acc_type, bal, credit_amount);
+    sav_acc a3(name, acc_no, acc_type, bal, debit_amount);
 
     switch (ch)
     {
     case 1:
         cout << "Enter Amount For Deposit :  " << endl;
-        cin >> credit_amount; 
-        curr_acc a2(name, acc_no, acc_type, bal, credit_amount);
-        a2.deposit_balance();
+        cin >> credit_amount;
+        a2.deposit_balance(credit_amount);
         break;
 
     case 2:
         cout << "Enter Amount For Withdraw :  " << endl;
         cin >> debit_amount;
-        sav_acc a3(name, acc_no, acc_type, bal, debit_amount);
-        a3.withdraw_balance();
+        a3.withdraw_balance(debit_amount);
         break;
 
     case 3:
@@ -166,8 +158,7 @@ int main()
         a3.simple_Interst(r, y);
         break;
 
-    case 4:
-        account a1(name, acc_no, acc_type, bal);
+    case 4: 
         a1.DisplayBasicDetails();
         break;
 

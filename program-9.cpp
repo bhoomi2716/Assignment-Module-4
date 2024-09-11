@@ -88,9 +88,7 @@ int main()
     cout<<"Enter Salary : ";
     cin>>s;
     DisplayDetails per;
-    // p.DisplayAllDetails("abc",23,90,12000);
+    // also enter data like -- p.DisplayAllDetails("abc",23,90,12000);
     per.DisplayAllDetails(n,a,p,s);
     return 0;
 }
-
-//Done
